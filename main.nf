@@ -16,6 +16,7 @@
 include { FIBERSEQ_LOCAL  } from './workflows/fiberseq_local'
 include { PIPELINE_INITIALISATION } from './subworkflows/local/utils_nfcore_fiberseq_local_pipeline'
 include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_fiberseq_local_pipeline'
+
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     NAMED WORKFLOWS FOR PIPELINE
@@ -25,7 +26,7 @@ include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_fibe
 //
 // WORKFLOW: Run main analysis pipeline depending on type of input
 //
-workflow CHAOCHAOWONG_FIBERSEQ_LOCAL {
+workflow FIBERSEQ_LOCAL {
 
     take:
     samplesheet // channel: samplesheet read in from --input
@@ -63,7 +64,7 @@ workflow {
     //
     // WORKFLOW: Run main workflow
     //
-    CHAOCHAOWONG_FIBERSEQ_LOCAL (
+    FIBERSEQ_LOCAL (
         PIPELINE_INITIALISATION.out.samplesheet
     )
     //
